@@ -37,6 +37,7 @@ public class AccountController {
             System.out.println(accountRes.getUsername());
         });
         // sv code model mapper rổi chụp ảnh lên fb a xem nha
+        // code dua lên git rồi
         // modelmaper chuyển 1 đối tượng sang đối tượng khác
 //        Account account = new Account();
 //        account.setId("ppp");
