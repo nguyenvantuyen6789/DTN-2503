@@ -19,4 +19,10 @@ public class AccountService {
 
         return true;
     }
+
+    public Account findByUsername(String username) {
+        Account account = accountRepo.findByUsername(username);
+
+        return account;
+    }
 }

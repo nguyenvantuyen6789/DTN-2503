@@ -36,6 +36,19 @@ public class GlobalException {
         }
 
         // sv code cho chay di nhe
+        // lafm xong chup anh len fb nhe
+        // cac b giai lao 10p nhe
         return new ResponseEntity(result, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(value = AppException.class)
+    public ResponseEntity<?> appEx(AppException exception) {
+        ErrorCode errorCode = exception.getErrorCode();
+
+        ApiResponseDTO apiResponseDTO = new ApiResponseDTO();
+        apiResponseDTO.setCode(errorCode.getCode());
+        apiResponseDTO.setMessage(errorCode.getMessage());
+
+        return new ResponseEntity<>(apiResponseDTO, errorCode.getStatus());
     }
 }

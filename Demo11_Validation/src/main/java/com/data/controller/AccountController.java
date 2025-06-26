@@ -2,6 +2,8 @@ package com.data.controller;
 
 import com.data.dto.AccountCreateDTO;
 import com.data.entity.Account;
+import com.data.exception.AppException;
+import com.data.exception.ErrorCode;
 import com.data.service.AccountService;
 import jakarta.validation.Valid;
 import lombok.AccessLevel;
@@ -24,6 +26,11 @@ public class AccountController {
 
     @PostMapping
     public ResponseEntity<?> create(@Valid @RequestBody AccountCreateDTO accountCreateDTO) {
+        Account tmpAccount = accountService.findByUsername(accountCreateDTO.getUsername());
+        if (tmpAccount != null) {
+            throw new AppException(ErrorCode.USER_EXIST);
+        }
+
         Account account = new Account();
         account.setUsername(accountCreateDTO.getUsername());
         account.setEmail(accountCreateDTO.getEmail());
