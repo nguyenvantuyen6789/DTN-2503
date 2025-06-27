@@ -39,6 +39,6 @@ public class AccountController {
 
         accountService.create(account);
 
-        return new ResponseEntity<>(account, HttpStatus.CREATED); // ma 201
+        return new ResponseEntity<>("account", HttpStatus.CREATED); // ma 201
     }
 }

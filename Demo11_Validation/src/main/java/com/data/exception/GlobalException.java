@@ -1,6 +1,7 @@
 package com.data.exception;
 
 import com.data.dto.ApiResponseDTO;
+import io.swagger.v3.oas.annotations.Hidden;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -9,10 +10,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+@Hidden
 @RestControllerAdvice
 public class GlobalException {
 
@@ -49,6 +49,7 @@ public class GlobalException {
         apiResponseDTO.setCode(errorCode.getCode());
         apiResponseDTO.setMessage(errorCode.getMessage());
 
+        // sv lam va chup anh len fb
         return new ResponseEntity<>(apiResponseDTO, errorCode.getStatus());
     }
 }
