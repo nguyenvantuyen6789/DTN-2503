@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: Demo13_Security
+  profiles:
+    active: dev
+
+# logging
+logging:
+  file:
+    name: app.log
+#  pattern:
+#    file: %d %p %c{1.} [%t] %m%n
