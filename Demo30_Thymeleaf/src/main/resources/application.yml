@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: Demo30_Thymeleaf
+  profiles:
+    active: dev
