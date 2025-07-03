@@ -15,3 +15,26 @@ spring:
     properties:
       hibernate:
         format_sql: true
+#  mail:
+#    host: smtp.gmail.com
+#    port: 587
+#    username: nguyenvantuyen6789@gmail.com
+#    password: qifx fobl kbsd ysmw
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#        starttls:
+#          enable: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: nguyenvantuyen6789@gmail.com
+    password: qifx fobl kbsd ysmw
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true

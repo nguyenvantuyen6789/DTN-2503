@@ -6,6 +6,9 @@ import com.data.service.ProductService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +28,9 @@ public class ProductController {
     ProductService productService;
 
     ProductRepository productRepo;
+
+    // send email
+    JavaMailSender javaMailSender;
 
     @GetMapping("list")
     public String getAll(Model model) {
@@ -46,11 +52,34 @@ public class ProductController {
         return "redirect:/product/list";
     }
 
+    // sv lam chuc nang them, xoa san pham
+    // lam the chuc nang hien thi, xoa, them the loai
+    // lam xong chup len fb
+    // ti nua kiem tra tung ban nhe
     @GetMapping("delete/{id}")
     public String delete(@PathVariable int id) {
         productRepo.deleteById(id);
 
         return "redirect:/product/list";
+    }
+
+    @GetMapping("send-email")
+    public String sendEmail() {
+        try {
+            SimpleMailMessage mail = new SimpleMailMessage();
+
+            mail.setFrom("nguyenvantuyen6789@gmail.com");
+            mail.setTo("nguyenvantuyen6789@gmail.com");
+            mail.setSubject("Thu moi phong van");
+            mail.setText("Chung toi han hanh moi ban tham gia");
+
+            javaMailSender.send(mail);
+            System.out.println("Send email success!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "ProductList";
     }
 
 }
