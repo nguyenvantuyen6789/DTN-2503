@@ -6,5 +6,24 @@
 </head>
 <body>
     <h4>List Product</h4>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <td>No.</td>
+                <td>Id</td>
+                <td>Product Name</td>
+                <td>Price</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="obj, loop : ${products}">
+                <td th:text="${loop.index + 1}">No.</td>
+                <td th:text="${obj.id}">Id</td>
+                <td th:text="${obj.productName}">Product Name</td>
+                <td th:text="${obj.price}">Price</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
