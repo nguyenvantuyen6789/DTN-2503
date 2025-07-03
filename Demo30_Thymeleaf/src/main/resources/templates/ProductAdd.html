@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.15.4/css/all.css} "/>
+    <script th:src="@{/webjars/jquery/3.6.3/jquery.min.js}"></script>
+</head>
+<body>
+    <h4>Add Product</h4>
+
+    <form action="/product/save" method="post">
+        <div>
+            <label for="productName">Product Name</label>
+            <input type="text" name="productName" id="productName" />
+        </div>
+
+        <div>
+            <label for="price">Price</label>
+            <input type="text" name="price" id="price" />
+        </div>
+
+        <div>
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description" />
+        </div>
+
+        <div>
+            <input type="submit" value="Submit" />
+        </div>
+    </form>
+
+</body>
+</html>
