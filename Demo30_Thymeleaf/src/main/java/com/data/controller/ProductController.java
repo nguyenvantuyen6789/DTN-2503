@@ -52,10 +52,6 @@ public class ProductController {
         return "redirect:/product/list";
     }
 
-    // sv lam chuc nang them, xoa san pham
-    // lam the chuc nang hien thi, xoa, them the loai
-    // lam xong chup len fb
-    // ti nua kiem tra tung ban nhe
     @GetMapping("delete/{id}")
     public String delete(@PathVariable int id) {
         productRepo.deleteById(id);
@@ -63,6 +59,7 @@ public class ProductController {
         return "redirect:/product/list";
     }
 
+    // sv thuc hanh gui email: 10p
     @GetMapping("send-email")
     public String sendEmail() {
         try {

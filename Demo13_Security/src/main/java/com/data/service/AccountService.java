@@ -20,7 +20,7 @@ import java.util.Collections;
 public class AccountService implements UserDetailsService {
 
     AccountRepository accountRepo;
-// sv làm login trong 15p rôi chup lên fb
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         System.out.println(username);

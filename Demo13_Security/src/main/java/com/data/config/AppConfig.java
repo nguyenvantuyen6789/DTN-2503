@@ -15,6 +15,8 @@ public class AppConfig {
         return new BCryptPasswordEncoder();
     }
 
+    // sv lafm chuc nang phan quyen, roi chup len fb
+    // code day len git roi
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         // cross site request forgery: chặn việc request giả mạo
